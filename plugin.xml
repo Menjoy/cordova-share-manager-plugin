@@ -27,6 +27,11 @@
             </feature>
         </config-file>
 
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        </config-file>
+
         <source-file src="src/android/ShareManagerPlugin.java" target-dir="src/com/cordova/plugin/sharemanager" />
+        <source-file src="src/android/PendingRequests.java" target-dir="src/com/cordova/plugin/sharemanager" />
     </platform>
 </plugin>
