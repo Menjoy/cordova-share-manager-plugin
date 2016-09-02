@@ -16,6 +16,16 @@ Android
 
 !Important: basic version of cordova-custom-config plugin doesn't support adding new nodes to xml.
 
+## Permissions
+
+Don't worry about permissions. Plugin contains read external storage permission:
+
+```xml
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+```
+
+And will request it before using (required for Android 6.0)
+
 ## Android manifest changes
 
 You should allow your application to receive data from another application, by adding follows strings to config.xml
@@ -76,4 +86,13 @@ As a result you will receive data inside subscribe callback.
 
 ```js
 window.shareManager.read();
+```
+
+### finish
+
+By android flow when you share data from another application it opens you application activity in current application.
+So after you successfully shared data to your application your should call finish for close your app.
+
+```js
+window.shareManager.finish();
 ```
